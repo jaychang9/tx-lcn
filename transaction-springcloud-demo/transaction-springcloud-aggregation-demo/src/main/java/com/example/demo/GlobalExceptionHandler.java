@@ -1,11 +1,9 @@
-package com.example.demo2;
+package com.example.demo;
 
-//import com.example.demo2.auth.exception.ClientInvalidException;
-//import com.example.demo2.auth.exception.UnauthorizedException;
-import com.example.demo2.exception.BizException;
-import com.example.demo2.exception.InvalidParameterException;
-import com.example.demo2.rest.BaseResponse;
-import com.example.demo2.rest.ResponseCode;
+import com.example.demo.exception.BizException;
+import com.example.demo.exception.InvalidParameterException;
+import com.example.demo.rest.BaseResponse;
+import com.example.demo.rest.ResponseCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

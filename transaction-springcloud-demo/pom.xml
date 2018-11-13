@@ -16,6 +16,7 @@
     <modules>
         <module>transaction-springcloud-mybatis-demo1</module>
         <module>transaction-springcloud-mybatis-demo2</module>
+        <module>transaction-springcloud-aggregation-demo</module>
     </modules>
 
     <properties>

@@ -1,14 +1,13 @@
 package com.example.demo1.controller;
 
+import com.example.demo1.dto.AccountBalanceDTO;
 import com.example.demo1.pojo.Test;
 import com.example.demo1.rest.BaseResponse;
 import com.example.demo1.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,6 +32,18 @@ public class DemoController {
     @RequestMapping("/save")
     public int save(){
         return demoService.save();
+    }
+
+
+    @PostMapping("/deduct")
+    public void deduct(@RequestBody AccountBalanceDTO accountBalanceDTO){
+         demoService.dedcut(accountBalanceDTO);
+    }
+
+
+    @PostMapping("/increase")
+    public void increase(@RequestBody AccountBalanceDTO accountBalanceDTO){
+         demoService.increase(accountBalanceDTO);
     }
 
 }

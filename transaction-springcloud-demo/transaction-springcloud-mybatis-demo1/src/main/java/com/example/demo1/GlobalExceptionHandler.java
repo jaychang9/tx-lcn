@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @description
  */
 
+@SuppressWarnings("AlibabaCommentsMustBeJavadocFormat")
 @RestControllerAdvice("cn.green")
 @ResponseStatus(HttpStatus.OK)
 public class GlobalExceptionHandler {
@@ -33,6 +34,7 @@ public class GlobalExceptionHandler {
 
     // 业务异常
     @ExceptionHandler(BizException.class)
+    @ResponseStatus(code = HttpStatus.OK)
     public BaseResponse bizException(BizException ex) {
         _LOG.info(ex.getMessage(),ex);
         return new BaseResponse(ResponseCode.FAILURE.getCode(),ex.getMessage());
