@@ -111,7 +111,7 @@ public class TransactionHandler extends ChannelInboundHandlerAdapter {
             } else if (event.state() == IdleState.WRITER_IDLE) {
                 //表示已经多久没有发送数据了
                 SocketUtils.sendMsg(ctx, heartJson);
-                logger.debug("hart data --->" + heartJson);
+                logger.debug("heart data --->" + heartJson);
             } else if (event.state() == IdleState.ALL_IDLE) {
                 //表示已经多久既没有收到也没有发送数据了
             }
