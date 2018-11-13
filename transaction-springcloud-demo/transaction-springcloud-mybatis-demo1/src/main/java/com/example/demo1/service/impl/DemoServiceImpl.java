@@ -45,7 +45,7 @@ public class DemoServiceImpl implements DemoService {
 
 //        int rs22 = demo2Client.save();
 
-        int v = 100/0;
+        //int v = 100/0;
 
         return rs1+rs2;
     }

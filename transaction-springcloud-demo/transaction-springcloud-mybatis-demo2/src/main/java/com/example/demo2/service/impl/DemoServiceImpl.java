@@ -4,6 +4,7 @@ import com.codingapi.tx.annotation.TxTransaction;
 import com.example.demo2.mapper.TestMapper;
 import com.example.demo2.pojo.Test;
 import com.example.demo2.service.DemoService;
+import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +33,15 @@ public class DemoServiceImpl implements DemoService {
 
     @TxTransaction(isStart = false)
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public int save() {
-
-        int rs = testMapper.save("mybatis-hello-2");
-
+        boolean flag = RandomUtils.nextBoolean();
+        int rs = 0;
+        if(flag) {
+            rs = testMapper.save("mybatis-hello-2");
+        }else{
+            int a = 1 / 0;
+        }
         return rs;
     }
 }
