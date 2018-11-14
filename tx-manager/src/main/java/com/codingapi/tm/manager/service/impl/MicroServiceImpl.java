@@ -9,6 +9,7 @@ import com.codingapi.tm.model.TxState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -34,6 +35,9 @@ public class MicroServiceImpl implements MicroService {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Autowired
+    private Registration registration;
+
 
 
     private boolean isIp(String ipAddress) {
@@ -48,7 +52,7 @@ public class MicroServiceImpl implements MicroService {
     @Override
     public TxState getState() {
         TxState state = new TxState();
-        String ipAddress = discoveryClient.getLocalServiceInstance().getHost();
+        String ipAddress = registration.getHost();
         if(!isIp(ipAddress)){
             ipAddress = "127.0.0.1";
         }
